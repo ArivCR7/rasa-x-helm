@@ -9,9 +9,17 @@ metadata:
     app.kubernetes.io/component: {{ .serviceName }}
 spec:
   ports:
-  - port: {{ $.Values.rasa.port }}
-    targetPort: {{ $.Values.rasa.port }}
-    protocol: TCP
+  - port: {{ .Values.rasa.service.port }}
+    targetPort: 5005
+    protocol: "TCP"
+    name: "http"
+    {{- if .Values.rasa.service.nodePort }}
+    nodePort: {{ .Values.rasa.service.nodePort }}
+    {{- end }}
+    {{- if .Values.rasa.service.externalIPs }}
+  externalIPs: {{ .Values.rasa.service.externalIPs | toYaml | nindent 2 }}
+    {{- end }}
+  type: {{ .Values.rasa.service.type }}
   selector:
     {{- include "rasa-x.selectorLabels" $ | nindent 4 }}
     app.kubernetes.io/component: {{ .serviceName }}

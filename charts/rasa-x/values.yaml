@@ -217,43 +217,6 @@ app:
     healthCheckUrl: /health
 
 # nginx specific settings
-nginx:
-  # name of the nginx image to use
-  name: "rasa/nginx"
-  # tag refers to the nginx image tag (uses `appVersion` by default)
-  tag: ""
-  # replicaCount of nginx containers to run
-  replicaCount: 1
-  # certificateSecret which nginx uses to mount the certificate files
-  certificateSecret: ""
-  # service which is to expose nginx
-  service:
-    # annotations for the service
-    annotations: {}
-    # type of the service (https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
-    type: LoadBalancer
-    # port is the port which the nginx service exposes for HTTP connections
-    port: 8001
-    # nodePort can be used with a service of type `NodePort` to expose the service on a certain port of the node (https://kubernetes.io/docs/concepts/services-networking/service/#nodeport)
-    nodePort: ""
-    # externalIPs can be used to expose the service to certain IPs (https://kubernetes.io/docs/concepts/services-networking/service/#external-ips)
-    externalIPs: []
-  # initialProbeDelay for the `readinessProbe` and the `livenessProbe`
-  initialProbeDelay: 10
-
-  # tolerations can be used to control the pod to node assignment
-  # https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-  tolerations: []
-    # - key: "nvidia.com/gpu"
-    #   operator: "Exists"
-
-  # nodeSelector to specify which node the pods should run on
-  # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-  nodeSelector: {}
-    # "beta.kubernetes.io/instance-type": "g3.8xlarge"
-
-  # resources which nginx is required / allowed to use
-  resources: {}
 
 # Duckling specific settings
 duckling:

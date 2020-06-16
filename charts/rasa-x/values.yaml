@@ -233,7 +233,7 @@ nginx:
     # type of the service (https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
     type: LoadBalancer
     # port is the port which the nginx service exposes for HTTP connections
-    port: 8000
+    port: 8001
     # nodePort can be used with a service of type `NodePort` to expose the service on a certain port of the node (https://kubernetes.io/docs/concepts/services-networking/service/#nodeport)
     nodePort: ""
     # externalIPs can be used to expose the service to certain IPs (https://kubernetes.io/docs/concepts/services-networking/service/#external-ips)

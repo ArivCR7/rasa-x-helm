@@ -1,4 +1,4 @@
-Thanks for installing Rasa X {{ .Values.rasax.tag }} !
+Thankss for installing Rasa X {{ .Values.rasax.tag }} !
 
 {{- if not .Values.rasax.initialUser.password }}
 Creating a Rasa X user:
